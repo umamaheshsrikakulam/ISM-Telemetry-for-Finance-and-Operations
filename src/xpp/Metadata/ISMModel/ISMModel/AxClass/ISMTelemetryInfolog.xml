@@ -120,6 +120,18 @@ class ISMTelemetryInfolog extends ISMTelemetryBase
 ]]></Source>
 			</Method>
 			<Method>
+				<Name>initializeParameterSetup</Name>
+				<Source><![CDATA[
+    protected void initializeParameterSetup(ISMTelemetryParameterSetup _parameterSetup)
+    {
+        _parameterSetup.TelemetryClass = this.telemetryName();
+        _parameterSetup.IsEnabled = NoYes::No;
+        _parameterSetup.SeverityLevel = ISMTelemetrySeverityLevel::Error;
+    }
+
+]]></Source>
+			</Method>
+			<Method>
 				<Name>info_onInfoLogMessageAdd</Name>
 				<Source><![CDATA[
     /// <summary>
