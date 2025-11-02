@@ -6,18 +6,24 @@
 /// <summary>
 /// Contract for the infolog telemetry configuration.
 /// </summary>
-[DataContract]
+[
+    DataContract,
+    SysOperationGroup('AddCallStack', "@ISM:ISMTelemetryInfolog_AddCallStack", '1'),
+    SysOperationGroup('CompressCallStack', "@ISM:ISMTelemetryInfolog_CompressCallStack", '2')
+]
 class ISMTelemetryInfologContract implements SysPackable
 {
-    public boolean addCallStackInformation;
-    public boolean addCallStackWarning;
-    public boolean addCallStackError;
+    private boolean addCallStackInformation;
+    private boolean addCallStackWarning;
+    private boolean addCallStackError;
+    private boolean compressCallStack;
 
     #define.CurrentVersion(1)
     #localmacro.CurrentList
         addCallStackInformation,
         addCallStackWarning,
-        addCallStackError
+        addCallStackError,
+        compressCallStack
     #endmacro
 
 }
@@ -28,7 +34,8 @@ class ISMTelemetryInfologContract implements SysPackable
 				<Source><![CDATA[
     [
         DataMember,
-        SysOperationLabel("@ISM:ISMTelemetryInfolog_AddInformationCallStack")
+        SysOperationLabel("@ISM:ISMTelemetryInfolog_AddInformationCallStack"),
+        SysOperationGroupMember('AddCallStack')
     ]
     public boolean parmAddCallStackInformation(boolean _addCallStackInformation = addCallStackInformation)
     {
@@ -43,7 +50,8 @@ class ISMTelemetryInfologContract implements SysPackable
 				<Source><![CDATA[
     [
         DataMember,
-        SysOperationLabel("@ISM:ISMTelemetryInfolog_AddWarningCallStack")
+        SysOperationLabel("@ISM:ISMTelemetryInfolog_AddWarningCallStack"),
+        SysOperationGroupMember('AddCallStack')
     ]
     public boolean parmAddCallStackWarning(boolean _addCallStackWarning = addCallStackWarning)
     {
@@ -58,12 +66,29 @@ class ISMTelemetryInfologContract implements SysPackable
 				<Source><![CDATA[
     [
         DataMember,
-        SysOperationLabel("@ISM:ISMTelemetryInfolog_AddErrorCallStack")
+        SysOperationLabel("@ISM:ISMTelemetryInfolog_AddErrorCallStack"),
+        SysOperationGroupMember('AddCallStack')
     ]
     public boolean parmAddCallStackError(boolean _addCallStackError = addCallStackError)
     {
         addCallStackError = _addCallStackError;
         return addCallStackError;
+    }
+
+]]></Source>
+			</Method>
+			<Method>
+				<Name>parmCompressCallStack</Name>
+				<Source><![CDATA[
+    [
+        DataMember,
+        SysOperationLabel("@ISM:ISMTelemetryInfolog_CompressCallStack"),
+        SysOperationGroupMember('CompressCallStack')
+    ]
+    public boolean parmCompressCallStack(boolean _compressCallStack = compressCallStack)
+    {
+        compressCallStack = _compressCallStack;
+        return compressCallStack;
     }
 
 ]]></Source>

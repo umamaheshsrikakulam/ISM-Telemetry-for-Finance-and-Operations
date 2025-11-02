@@ -132,6 +132,23 @@ class ISMTelemetryInfolog extends ISMTelemetryBase
 ]]></Source>
 			</Method>
 			<Method>
+				<Name>initializeConfiguration</Name>
+				<Source><![CDATA[
+    protected void initializeConfiguration(SysPackable _configuration)
+    {
+        ISMTelemetryInfologContract contract = _configuration as ISMTelemetryInfologContract;
+        if (contract)
+        {
+            contract.parmAddCallStackInformation(false);
+            contract.parmAddCallStackWarning(false);
+            contract.parmAddCallStackError(false);
+            contract.parmCompressCallStack(true);
+        }
+    }
+
+]]></Source>
+			</Method>
+			<Method>
 				<Name>info_onInfoLogMessageAdd</Name>
 				<Source><![CDATA[
     /// <summary>
@@ -184,7 +201,7 @@ class ISMTelemetryInfolog extends ISMTelemetryBase
             || telemetrySeverityLevel == ISMTelemetrySeverityLevel::Warning && contract.parmAddCallStackWarning()
             || telemetrySeverityLevel == ISMTelemetrySeverityLevel::Error && contract.parmAddCallStackError())
         {
-            this.addCallStack();
+            this.addCallStack(contract.parmCompressCallStack());
         }   
 
         this.processEvent(ISMTelemetryEventNames::InfologMessage);
