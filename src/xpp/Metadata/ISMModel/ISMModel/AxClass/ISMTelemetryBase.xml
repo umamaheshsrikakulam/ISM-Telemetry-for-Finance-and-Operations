@@ -196,20 +196,39 @@ abstract class ISMTelemetryBase
             str callStackStr;
             container ismCallStack = xSession::xppCallStack();
 
-            for (int i = 1; i <= conlen(ismCallStack); i++)
+            for (int i = 1; i <= conlen(ismCallStack); i+=4)
             {
-                callStackStr += conpeek(ismCallStack, i);
+                // 1: Calling object and method name, e.g. ISMTelemetryBase[class]\`addCallStack(Boolean _compressCallStack, Boolean @_compressCallStack_IsDefaultSet)
+                callStackStr += conpeek(ismCallStack, i) + ' ';
+
+                // 2: Line number, e.g. 152; can be 0
+                int lineNumber = conpeek(ismCallStack, i + 1);
+                if (lineNumber > 0)
+                {
+                    callStackStr += 'Line ' + int2str(lineNumber) + ' ';
+                }
+            
+                // 3: Publisher, e.g. contoso; can be empty
+                callStackStr += 'in ' + conpeek(ismCallStack, i + 3);
+            
+                // 4: Assembly name, e.g. ISModel
+                str publisher = conpeek(ismCallStack, i + 2);
+                if (publisher)
+                {
+                    callStackStr += ' by ' + publisher;
+                }
+            
+                callStackStr += '\n';
             }
-            //make sure callstack is compressed
             this.addRuntimeProperty(
-                ISMTelemetryProperties::CallStack, callStackStr, _compressCallStack);
+            ISMTelemetryProperties::CallStack, callStackStr, _compressCallStack);
 
         }
         catch
         {
             warning(strFmt("@ISM:ISMTelemetryAddCallStackError", classId2Name(classIdGet(this))));
         }
-        
+    
     }
 
 ]]></Source>
