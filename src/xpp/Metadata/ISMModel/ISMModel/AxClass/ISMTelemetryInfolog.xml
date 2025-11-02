@@ -193,8 +193,8 @@ class ISMTelemetryInfolog extends ISMTelemetryBase
         }
 
         this.addRuntimeProperty(ISMTelemetryProperties::InfologMessage, message);
-        this.addRuntimeProperty(ISMTelemetryProperties::InfoLogIdentifier, identifier);
-        this.addRuntimeProperty(ISMTelemetryProperties::InfoLogLevel, enum2str(infologLevel));
+        this.addRuntimeProperty(ISMTelemetryProperties::InfologIdentifier, identifier);
+        this.addRuntimeProperty(ISMTelemetryProperties::InfologLevel, enum2str(infologLevel));
         
         ISMTelemetryInfologContract contract = this.telemetryConfig;
         if (telemetrySeverityLevel == ISMTelemetrySeverityLevel::Information && contract.parmAddCallStackInformation()

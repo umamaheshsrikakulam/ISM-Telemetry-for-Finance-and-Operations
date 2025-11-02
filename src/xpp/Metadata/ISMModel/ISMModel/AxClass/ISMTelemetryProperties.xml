@@ -49,8 +49,8 @@ public static final class ISMTelemetryProperties
     public const str Finalizing = 'Finalizing';
     public const str ImportBatchGroupId = 'importBatchGroupId';
     public const str InfologMessage = 'InfologMessage';
-    public const str InfoLogIdentifier = 'InfoLogIdentifier';
-    public const str InfoLogLevel = 'InfoLogLevel';
+    public const str InfologIdentifier = 'InfologIdentifier';
+    public const str InfologLevel = 'InfologLevel';
     public const str InternalCall = 'internalCall';
     public const str IsCompare = 'isCompare';
     public const str ItemId = 'ItemId';
