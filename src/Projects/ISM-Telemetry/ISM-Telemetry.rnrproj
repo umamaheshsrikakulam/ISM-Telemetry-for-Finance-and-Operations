@@ -113,6 +113,11 @@
       <Name>ISMTelemetryBase</Name>
       <Link>Base objects\ISMTelemetryBase</Link>
     </Content>
+    <Content Include="AxClass\ISMTelemetryBaseContract">
+      <SubType>Content</SubType>
+      <Name>ISMTelemetryBaseContract</Name>
+      <Link>Base objects\ISMTelemetryBaseContract</Link>
+    </Content>
     <Content Include="AxClass\ISMTelemetryBatch">
       <SubType>Content</SubType>
       <Name>ISMTelemetryBatch</Name>
@@ -127,6 +132,11 @@
       <SubType>Content</SubType>
       <Name>ISMTelemetryBusinessEvents</Name>
       <Link>BusinessEvent\ISMTelemetryBusinessEvents</Link>
+    </Content>
+    <Content Include="AxClass\ISMTelemetryConfigurationDialogController">
+      <SubType>Content</SubType>
+      <Name>ISMTelemetryConfigurationDialogController</Name>
+      <Link>Base objects\ISMTelemetryConfigurationDialogController</Link>
     </Content>
     <Content Include="AxClass\ISMTelemetryCostActivate">
       <SubType>Content</SubType>
@@ -168,6 +178,16 @@
       <Name>ISMTelemetryGeneric</Name>
       <Link>Base objects\ISMTelemetryGeneric</Link>
     </Content>
+    <Content Include="AxClass\ISMTelemetryInfolog">
+      <SubType>Content</SubType>
+      <Name>ISMTelemetryInfolog</Name>
+      <Link>Infolog Telemetry\ISMTelemetryInfolog</Link>
+    </Content>
+    <Content Include="AxClass\ISMTelemetryInfologContract">
+      <SubType>Content</SubType>
+      <Name>ISMTelemetryInfologContract</Name>
+      <Link>Infolog Telemetry\ISMTelemetryInfologContract</Link>
+    </Content>
     <Content Include="AxClass\ISMTelemetryProperties">
       <SubType>Content</SubType>
       <Name>ISMTelemetryProperties</Name>
@@ -187,6 +207,11 @@
       <SubType>Content</SubType>
       <Name>ISMTelemetryClass</Name>
       <Link>Base objects\ISMTelemetryClass</Link>
+    </Content>
+    <Content Include="AxEdt\ISMTelemetryConfiguration">
+      <SubType>Content</SubType>
+      <Name>ISMTelemetryConfiguration</Name>
+      <Link>Base objects\ISMTelemetryConfiguration</Link>
     </Content>
     <Content Include="AxEnum\ISMTelemetrySeverityLevel">
       <SubType>Content</SubType>
@@ -211,7 +236,7 @@
     <Content Include="AxTable\ISMTelemetryParameterSetup">
       <SubType>Content</SubType>
       <Name>ISMTelemetryParameterSetup</Name>
-      <Link>Tables\ISMTelemetryParameterSetup</Link>
+      <Link>Base objects\ISMTelemetryParameterSetup</Link>
     </Content>
     <Content Include="ISM.en-US.label.txt">
       <SubType>Content</SubType>
@@ -228,7 +253,7 @@
     <Folder Include="JsonSerializer" />
     <Folder Include="BusinessEvent" />
     <Folder Include="CostActivation" />
-    <Folder Include="Tables\" />
+    <Folder Include="Infolog Telemetry" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.Common.targets" />
   <Import Project="$(BuildTasksDirectory)\Microsoft.Dynamics.Framework.Tools.BuildTasks.17.0.targets" />

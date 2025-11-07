@@ -29,6 +29,7 @@ public final class ISMTelemetryEventNames
     public const str BusinessEventSavedInCommitLog  = 'BusinessEventSavedInCommitLog';
     public const str BusinessEventSent              = 'BusinessEventSent';
     public const str CostActivateItem               = 'CostActivateItem';
+    public const str InfologMessage                 = 'InfologMessage';
 
 }
 ]]></Declaration>
