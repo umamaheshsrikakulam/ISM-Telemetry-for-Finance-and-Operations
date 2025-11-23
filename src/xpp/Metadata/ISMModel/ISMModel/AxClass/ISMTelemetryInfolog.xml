@@ -204,7 +204,7 @@ class ISMTelemetryInfolog extends ISMTelemetryBase
             this.addCallStack(contract.parmCompressCallStack());
         }   
 
-        this.processEvent(ISMTelemetryEventNames::InfologMessage);
+        this.processTrace(message, telemetrySeverityLevel);
     }
 
 ]]></Source>
